@@ -1,0 +1,4 @@
+Lucía Fernández,32000035F,F,3,5
+Carlos Sánchez,32000038M,M,5,10
+Sofía Martínez,32000037F,F,2,3
+Javier López,32000039M,M,1,1
