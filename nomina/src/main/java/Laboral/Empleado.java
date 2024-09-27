@@ -17,7 +17,6 @@ public class Empleado extends Persona {
      * Años trabajados por el empleado siempre positivo.
      */
     public Integer anyos;
-
     /**
      * Constructor de la clase Empleado con todos los parámetros.
      * 
@@ -92,4 +91,31 @@ public class Empleado extends Persona {
         System.out.println("Categoria: " + categoria);
         System.out.println("Años trabajados: " + anyos);
     }
+
+	public Integer getAnyos() {
+		return anyos;
+	}
+
+	public void setAnyos(Integer anyos) {
+		this.anyos = anyos;
+	}
+
+	public void setSexo(char nuevoSexo) {
+		this.sexo = nuevoSexo;	
+	}
+
+	public void setNombre(String nuevoNombre) {
+		this.nombre = nuevoNombre;
+		
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public char getSexo() {
+		return sexo;
+	}
+
+	
 }

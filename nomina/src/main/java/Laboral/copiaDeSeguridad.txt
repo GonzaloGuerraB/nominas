@@ -1,0 +1,5 @@
+Nombre, DNI, Sexo, Categoria, Años Trabajados, Sueldo
+Lucía Fernández, 32000035F, F, 6, 5, 175000
+Carlos Sánchez, 32000038M, M, 5, 15, 205000
+Sofía Martínez, 32000037F, F, 4, 3, 125000
+Javier López, 32000039M, M, 1, 1, 55000

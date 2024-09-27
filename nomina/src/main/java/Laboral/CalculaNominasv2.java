@@ -14,7 +14,7 @@ public class CalculaNominasv2 {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/laboral"; // URL de la base de datos
     private static final String DB_USER = "root";  // Usuario de la base de datos
     private static final String DB_PASSWORD = "123456";  // Contraseña de la base de datos
-    private static final String RUTA_EMPLEADOS_NUEVOS = "C:\\Users\\gonza.DESKTOP-HQ81E30\\Desktop\\nominas-main\\nomina\\src\\main\\java\\Laboral\\empleadosNuevos.txt"; // Ruta del archivo
+    private static final String RUTA_EMPLEADOS_NUEVOS = "C:\\Users\\usuario\\Desktop\\GonzaloInstituto\\nomina\\src\\main\\java\\Laboral\\empleadosNuevos.txt"; // Ruta del archivo
 
     /**
      * Método principal que ejecuta el programa.
@@ -29,6 +29,9 @@ public class CalculaNominasv2 {
         List<Empleado> empleados = new ArrayList<>();
 
         try {
+        	
+        	// Ejemplo de alta por lotes desde archivo
+            // altaEmpleadoDesdeArchivo(RUTA_EMPLEADOS_NUEVOS);
             // Leer empleados desde la base de datos
             empleados = leerEmpleadosDesdeDB();
 
@@ -38,8 +41,8 @@ public class CalculaNominasv2 {
 
             // Realizar los cambios
             empleados.get(1).incrAnyo(); // Incrementar años trabajados de Ada Lovelace
-            empleados.get(0).setCategoria(6); // Cambiar la categoría de James Cosling a 9
-            empleados.get(4).setCategoria(1); // Cambiar la categoria de Nacho Valero a 8
+            empleados.get(0).setCategoria(9); // Cambiar la categoría de James Cosling a 9
+            empleados.get(2).setCategoria(4); // Cambiar la categoria de Nacho Valero a 8
 
             // Imprimir después de los cambios
             escribe(empleados);
@@ -128,18 +131,17 @@ public class CalculaNominasv2 {
         Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
         // Insertar los nuevos sueldos
-        for (Empleado empleado : empleados) {
-            String query = "INSERT INTO Nominas (empleado_id, sueldo) VALUES ((SELECT id FROM Empleados WHERE dni = ?), ?)";
-            PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setString(1, empleado.getDni());
-            pstmt.setInt(2, Nomina.sueldo(empleado));
-            pstmt.executeUpdate();
-            pstmt.close();
-        }
+        // for (Empleado empleado : empleados) {
+           // String query = "INSERT INTO Nominas (empleado_id, sueldo) VALUES ((SELECT id FROM Empleados WHERE dni = ?), ?)";
+           // PreparedStatement pstmt = conn.prepareStatement(query);
+            // pstmt.setString(1, empleado.getDni());
+           // pstmt.setInt(2, Nomina.sueldo(empleado));
+            // pstmt.executeUpdate();
+           // pstmt.close();
+        //
         
         // Codigo si en vez de insertar nuevoos registros solo queremos actualizarlos
         
-        /*
         for (Empleado empleado : empleados) {
             String query = "UPDATE Nominas SET sueldo = ? WHERE empleado_id = (SELECT id FROM Empleados WHERE dni = ?)";
             PreparedStatement pstmt = conn.prepareStatement(query);
@@ -147,9 +149,7 @@ public class CalculaNominasv2 {
             pstmt.setString(2, empleado.getDni()); 
             pstmt.executeUpdate(); 
             pstmt.close(); 
-        }
-        */
-        
+        }      
         conn.close();
     }
 
