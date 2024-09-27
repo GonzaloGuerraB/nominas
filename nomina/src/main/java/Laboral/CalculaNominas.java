@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class CalculaNominas {
-	
+	// HOLA
 	private static final String RUTA = System.getProperty("user.dir") + "/src/main/java/Laboral/";
 
     public static void main(String[] args) throws IOException, DatosNoCorrectosException {
